@@ -1,0 +1,10 @@
+<div class="input-group">
+  <input [type]="type" #input
+   (input)="onChange($event.target.value)"
+   (blur)="onTouched()"
+   [disabled]="disabled">
+
+  <div class="error" *ngIf="controlDir && !controlDir.control.valid && controlDir.control.touched">
+    Invalid input
+  </div>
+</div>
