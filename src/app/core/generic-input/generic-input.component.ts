@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Self } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Self, Optional, forwardRef } from '@angular/core';
 import {
   ControlValueAccessor, NG_VALUE_ACCESSOR, Validator, AbstractControl,
-  ValidatorFn, Validators, NG_VALIDATORS, NgControl
+  ValidatorFn, Validators, NG_VALIDATORS, NgControl, NgForm
 } from '@angular/forms';
 
 @Component({
@@ -26,17 +26,21 @@ export class GenericInputComponent implements ControlValueAccessor, Validator, O
   disabled;
 
   @Input() type = 'text';
-  @Input() isRequierd: boolean = false;
+  @Input() isRequired: boolean = false;
   @Input() pattern: string = null;
+  @Input() label: string = null;
+  @Input() placeholder: string;
+  @Input() errorMsg: string;
 
   constructor(@Self() public controlDir: NgControl) {
+    console.log(this.controlDir);
     this.controlDir.valueAccessor = this;
   }
 
   ngOnInit() {
     const control = this.controlDir.control;
     const validators: ValidatorFn[] = control.validator ? [control.validator] : [];
-    if (this.isRequierd) {
+    if (this.isRequired) {
       validators.push(Validators.required);
     }
     if (this.pattern) {
@@ -66,7 +70,7 @@ export class GenericInputComponent implements ControlValueAccessor, Validator, O
 
   validate(c: AbstractControl): { [key: string]: any; } {
     const validators: ValidatorFn[] = [];
-    if (this.isRequierd) {
+    if (this.isRequired) {
       validators.push(Validators.required);
     }
     if (this.pattern) {

@@ -1,0 +1,14 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+
+  <div class="form-label-group">
+    <label>Bla Bla*</label>
+    <input type="text" class="form-control" name="blabla" formControlName="blabla" />
+  </div>
+
+  <app-address-form [address]="address"></app-address-form>
+
+  <button class="btn btn-primary" type="submit">
+    Submit
+  </button>
+
+</form>

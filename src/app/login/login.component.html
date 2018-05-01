@@ -1,23 +1,22 @@
-<form class="form-signin">
+<form class="form-signin" (ngSubmit)="onSubmit(f.value)" #f="ngForm" >
   <div class="text-center mb-4">
     <h1 class="h3 mb-3 font-weight-normal">Login Page</h1>
   </div>
 
-  <div class="form-label-group">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-    <app-generic-input></app-generic-input>
-    <label for="inputEmail">Email address</label>
-  </div>
+  <app-generic-input [placeholder]="'Email'"
+  [isRequired]="true"
+  [errorMsg]="'Please enter your name'"
+  [label] = "'User Email'"
+  [pattern]="'[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}'"
+    ngModel name="email"></app-generic-input>
 
-  <div class="form-label-group">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    <label for="inputPassword">Password</label>
-  </div>
+    <app-generic-input [placeholder]="'Password'"
+    [isRequired]="true"
+    [errorMsg]="'Please enter a valid email'"
+    [label] = "'Password'"
+    [type]="'password'"
+    ngModel name="password"></app-generic-input>
 
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+ 
+  <button class="btn btn-lg btn-primary btn-block" [disabled]="!f.valid" type="submit">Sign in</button>
 </form>

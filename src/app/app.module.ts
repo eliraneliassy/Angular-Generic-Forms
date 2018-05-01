@@ -8,6 +8,10 @@ import { GenericInputComponent } from './core/generic-input/generic-input.compon
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReusableFormsComponent } from './reusable-forms/reusable-forms.component';
+import { Form1Component } from './reusable-forms/form1/form1.component';
+import { Form2Component } from './reusable-forms/form2/form2.component';
+import { AddressFormComponent } from './core/address-form/address-form.component';
 
 
 @NgModule({
@@ -15,14 +19,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     GenericInputComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReusableFormsComponent,
+    Form1Component,
+    Form2Component,
+    AddressFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,31 @@
-<p>
-  register works!
-</p>
+<form class="form-signin" (ngSubmit)="onSubmit(f.value)" #f="ngForm" >
+  <div class="text-center mb-4">
+    <h1 class="h3 mb-3 font-weight-normal">Register Page</h1>
+  </div>
+
+  <app-generic-input [placeholder]="'Full Name'"
+    [isRequired]="true"
+    [errorMsg]="'Please enter you name'"
+    [label] = "'Full Name'"
+    ngModel name="name"></app-generic-input>
+
+    <app-generic-input [placeholder]="'Age'"
+    [label] = "'Age'"
+    ngModel name="age"></app-generic-input>
+
+ <app-generic-input [placeholder]="'Email'"
+  [isRequired]="true"
+  [errorMsg]="'Please enter valid email address'"
+  [label] = "'User Email'"
+  [pattern]="'[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}'"
+    ngModel name="email"></app-generic-input>
+
+    <app-generic-input [placeholder]="'Password'"
+    [isRequired]="true"
+    [errorMsg]="'Please enter a valid email'"
+    [label] = "'Password'"
+    ngModel name="password"></app-generic-input>
+
+ 
+  <button class="btn btn-lg btn-primary btn-block" [disabled]="!f.valid" type="submit">Sign in</button>
+</form>
