@@ -75,9 +75,6 @@ export class GenericInputComponent implements ControlValueAccessor, Validator, O
 
     return validators;
   }
-  registerOnValidatorChange?(fn: () => void): void {
-    throw new Error('Method not implemented.');
-  }
 
 
 }
