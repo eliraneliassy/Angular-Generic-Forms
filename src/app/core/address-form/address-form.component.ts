@@ -1,6 +1,7 @@
-import { Address } from './address.interface';
+
 import { Component, OnInit, Input } from '@angular/core';
 import { ControlContainer, FormGroupDirective, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Address } from './address';
 
 @Component({
   selector: 'app-address-form',
@@ -10,7 +11,7 @@ import { ControlContainer, FormGroupDirective, FormGroup, FormBuilder, Validator
 })
 export class AddressFormComponent implements OnInit {
 
-  @Input() address: Address = {};
+  @Input() address: Address;
   form: FormGroup;
   constructor(
     private ctrlContainer: FormGroupDirective,

@@ -20,11 +20,7 @@
   [pattern]="'[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}'"
     ngModel name="email"></app-generic-input>
 
-    <app-generic-input [placeholder]="'Password'"
-    [isRequired]="true"
-    [errorMsg]="'Please enter a valid email'"
-    [label] = "'Password'"
-    ngModel name="password"></app-generic-input>
+  <app-my-password-input ngModel name="password"></app-my-password-input>
 
  
   <button class="btn btn-lg btn-primary btn-block" [disabled]="!f.valid" type="submit">Sign in</button>
