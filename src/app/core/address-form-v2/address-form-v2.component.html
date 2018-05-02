@@ -1,3 +1,4 @@
-<p>
-  address-form-v2 works!
-</p>
+<div [formGroup]="form">
+  <input formControlName="firstName" (blur)="onTouched()">
+  <input formControlName="lastName" (blur)="onTouched()">
+</div>
