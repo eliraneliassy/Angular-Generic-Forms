@@ -13,6 +13,7 @@ import { Form1Component } from './reusable-forms/form1/form1.component';
 import { Form2Component } from './reusable-forms/form2/form2.component';
 import { AddressFormComponent } from './core/address-form/address-form.component';
 import { MyPasswordInputComponent } from './core/my-password-input/my-password-input.component';
+import { AddressFormV2Component } from './core/address-form-v2/address-form-v2.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MyPasswordInputComponent } from './core/my-password-input/my-password-i
     Form1Component,
     Form2Component,
     AddressFormComponent,
-    MyPasswordInputComponent
+    MyPasswordInputComponent,
+    AddressFormV2Component
   ],
   imports: [
     BrowserModule,
