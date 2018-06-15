@@ -14,6 +14,8 @@ import { Form2Component } from './reusable-forms/form2/form2.component';
 import { AddressFormComponent } from './core/address-form/address-form.component';
 import { MyPasswordInputComponent } from './core/my-password-input/my-password-input.component';
 import { AddressFormV2Component } from './core/address-form-v2/address-form-v2.component';
+import { FirstCustomInputComponent } from './core/first-custom-input/first-custom-input.component';
+import { FirstComponent } from './first/first.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AddressFormV2Component } from './core/address-form-v2/address-form-v2.c
     Form2Component,
     AddressFormComponent,
     MyPasswordInputComponent,
-    AddressFormV2Component
+    AddressFormV2Component,
+    FirstCustomInputComponent,
+    FirstComponent
   ],
   imports: [
     BrowserModule,
