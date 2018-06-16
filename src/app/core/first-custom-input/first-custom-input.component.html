@@ -1,11 +1,10 @@
 <div class="form-label-group">
-  <input class="form-control" [type]="type" #input [placeholder]="placeholder">
+  <input class="form-control" [type]="type"
+   #input [placeholder]="placeholder" ngModel>
 
   <div class="d-flex">
     <span class="v" *ngIf="input.valid">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10">
-        <path fill="#3589FE" fill-rule="nonzero" d="M1.362 3.904L0 5.301 4.58 10 12 1.301 10.55 0 4.487 7.11z" />
-      </svg>
+      <img src="./assets/images/v.svg">
     </span>
 
     <label class="mr-auto">{{label}}
