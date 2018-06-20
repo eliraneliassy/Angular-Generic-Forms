@@ -33,7 +33,6 @@ export class GenericInputComponent implements ControlValueAccessor, Validator, O
   @Input() errorMsg: string;
 
   constructor(@Self() public controlDir: NgControl) {
-    console.log(this.controlDir);
     this.controlDir.valueAccessor = this;
   }
 

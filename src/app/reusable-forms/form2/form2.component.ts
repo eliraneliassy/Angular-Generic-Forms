@@ -15,10 +15,11 @@ export class Form2Component implements OnInit {
 
   ngOnInit() {
     this.addressForm = new FormGroup({});
-    this.addressForm.addControl('blabla', new FormControl());
+    this.addressForm.addControl('v2', new FormControl());
+
   }
 
-  onSubmit() {
+  submit() {
     console.log(this.addressForm.value);
   }
 
