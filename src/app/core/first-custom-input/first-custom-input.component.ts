@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './first-custom-input.component.html',
   styleUrls: ['./first-custom-input.component.scss']
 })
-export class FirstCustomInputComponent implements OnInit {
+export class FirstCustomInputComponent {
 
   @Input() type = 'text';
   @Input() isRequired: boolean = false;
@@ -13,11 +13,5 @@ export class FirstCustomInputComponent implements OnInit {
   @Input() label: string = null;
   @Input() placeholder: string;
   @Input() errorMsg: string;
-
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
