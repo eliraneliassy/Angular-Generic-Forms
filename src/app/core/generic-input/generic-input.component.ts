@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import {
-  ControlValueAccessor, NG_VALUE_ACCESSOR
+  ControlValueAccessor, NG_VALUE_ACCESSOR, Validator, AbstractControl, ValidationErrors, ValidatorFn, Validators, NG_VALIDATORS
 } from '@angular/forms';
 
 @Component({
@@ -12,10 +12,15 @@ import {
       provide: NG_VALUE_ACCESSOR,
       useExisting: GenericInputComponent,
       multi: true
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: GenericInputComponent,
+      multi: true
     }
   ]
 })
-export class GenericInputComponent implements ControlValueAccessor {
+export class GenericInputComponent implements ControlValueAccessor, Validator {
 
   @ViewChild('input') input: ElementRef;
   @Input() type = 'text';
@@ -40,5 +45,17 @@ export class GenericInputComponent implements ControlValueAccessor {
   }
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  validate(c: AbstractControl): ValidationErrors {
+    const validators: ValidatorFn[] = [];
+    if (this.isRequired) {
+      validators.push(Validators.required);
+    }
+    if (this.pattern) {
+      validators.push(Validators.pattern(this.pattern));
+    }
+
+    return validators;
   }
 }
