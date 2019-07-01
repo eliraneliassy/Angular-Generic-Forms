@@ -1,6 +1,6 @@
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, Self } from '@angular/core';
 import {
-  ControlValueAccessor, NG_VALUE_ACCESSOR, Validator, AbstractControl, ValidationErrors, ValidatorFn, Validators, NG_VALIDATORS
+  ControlValueAccessor, NG_VALUE_ACCESSOR, Validator, AbstractControl, ValidationErrors, ValidatorFn, Validators, NG_VALIDATORS, NgControl
 } from '@angular/forms';
 
 @Component({
@@ -8,19 +8,14 @@ import {
   templateUrl: './generic-input.component.html',
   styleUrls: ['./generic-input.component.scss'],
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: GenericInputComponent,
-      multi: true
-    },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: GenericInputComponent,
-      multi: true
-    }
+
   ]
 })
 export class GenericInputComponent implements ControlValueAccessor, Validator {
+
+  constructor(@Self() public control: NgControl) {
+    this.control.valueAccessor = this;
+  }
 
   @ViewChild('input') input: ElementRef;
   @Input() type = 'text';

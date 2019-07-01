@@ -13,8 +13,6 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class AddressFormV2Component implements OnInit, ControlValueAccessor {
-
-
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -31,9 +29,7 @@ export class AddressFormV2Component implements OnInit, ControlValueAccessor {
     });
   }
 
-  onTouched() {
-
-  }
+  onTouched() {}
 
   writeValue(obj: any): void {
     obj && this.form.setValue(obj, { emitEvent: false });
