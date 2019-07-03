@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './address-form-v2.component.html',
   styleUrls: ['./address-form-v2.component.scss'],
   providers: [
-    {provide: NG_VALUE_ACCESSOR,
-    useExisting: AddressFormV2Component,
-  multi: true}
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: AddressFormV2Component,
+      multi: true
+    }
   ]
 })
 export class AddressFormV2Component implements OnInit, ControlValueAccessor {
