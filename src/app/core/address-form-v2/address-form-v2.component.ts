@@ -5,14 +5,14 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-address-form-v2',
   templateUrl: './address-form-v2.component.html',
   styleUrls: ['./address-form-v2.component.scss'],
-   providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    multi: true,
-    useExisting: AddressFormV2Component
-  }
+  providers: [
+    {provide: NG_VALUE_ACCESSOR,
+    useExisting: AddressFormV2Component,
+  multi: true}
   ]
 })
 export class AddressFormV2Component implements OnInit, ControlValueAccessor {
+
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -29,7 +29,7 @@ export class AddressFormV2Component implements OnInit, ControlValueAccessor {
     });
   }
 
-  onTouched() {}
+  onTouch() { }
 
   writeValue(obj: any): void {
     obj && this.form.setValue(obj, { emitEvent: false });
@@ -38,10 +38,9 @@ export class AddressFormV2Component implements OnInit, ControlValueAccessor {
     this.form.valueChanges.subscribe(fn);
   }
   registerOnTouched(fn: any): void {
-    this.onTouched = fn;
+    this.onTouch = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
     isDisabled ? this.form.disabled : this.form.enabled;
   }
-
 }
