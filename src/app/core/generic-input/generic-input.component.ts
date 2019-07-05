@@ -13,8 +13,8 @@ import {
 })
 export class GenericInputComponent implements ControlValueAccessor, Validator {
 
-  constructor(@Self() public control: NgControl) {
-    this.control.valueAccessor = this;
+  constructor(@Self() public controlDir: NgControl) {
+    this.controlDir.valueAccessor = this;
   }
 
   @ViewChild('input') input: ElementRef;
