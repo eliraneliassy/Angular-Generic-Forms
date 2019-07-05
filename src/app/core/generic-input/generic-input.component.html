@@ -1,16 +1,14 @@
-
-
 <div class="form-label-group">
-  <input class="form-control"
-  [type]="type" #input
-   (input)="onChange($event.target.value)"
-   (blur)="onTouched()"
-   [disabled]="disabled"
-   [placeholder]="placeholder">
-   <div class="d-flex">
-    <span class="v" 
-    *ngIf="(isRequired && controlDir && controlDir.control.valid &&
-    controlDir.control.touched) || !isRequired && input.value.length>0">
+  <input class="form-control" 
+  [type]="type" 
+  #input 
+  (input)="onChange($event.target.value)" 
+  (blur)="onTouched()"
+  [disabled]="disabled" 
+  [placeholder]="placeholder">
+  
+  <div class="d-flex">
+    <span class="v" *ngIf="isRequired && input.valid && input.touched">
       <img src="./assets/images/v.svg">
     </span>
 
@@ -18,12 +16,7 @@
       <span class="required" *ngIf="isRequired">*</span>
     </label>
 
-    <span class="error"
-     *ngIf="controlDir && !controlDir.control.valid 
-     && controlDir.control.touched">{{errorMsg}}</span>
-</div>
-    
-
+    <span class="error" *ngIf="input && !input.valid && input.touched">{{errorMsg}}</span>
+  </div>
 
 </div>
-
