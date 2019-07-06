@@ -6,20 +6,16 @@ import { Address } from './address';
 @Component({
   selector: 'app-address-form',
   templateUrl: './address-form.component.html',
-  styleUrls: ['./address-form.component.scss'],
-  viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }]
+  styleUrls: ['./address-form.component.scss']
 })
 export class AddressFormComponent implements OnInit {
 
   @Input() address: Address;
   form: FormGroup;
   constructor(
-    private ctrlContainer: FormGroupDirective,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.form = this.ctrlContainer.form;
-
     this.form.addControl('addressForm',
       this.formBuilder.group({
         'firstName': [null, [Validators.required]],
