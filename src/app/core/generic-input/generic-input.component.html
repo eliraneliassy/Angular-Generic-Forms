@@ -1,9 +1,15 @@
 <div class="form-label-group">
-  <input class="form-control" [type]="type" [placeholder]="placeholder">
+  <input class="form-control" [type]="type" [placeholder]="placeholder" #input>
   <div class="d-flex">
+
+    <span class="v" *ngIf="isRequired && input.valid && input.touched">
+      <img src="./assets/images/v.svg">
+    </span>
 
     <label class="mr-auto">{{label}}
       <span class="required" *ngIf="isRequired">*</span>
     </label>
+
+    <span class="error" *ngIf="input && !input.valid && input.touched">{{errorMsg}}</span>
   </div>
 </div>
